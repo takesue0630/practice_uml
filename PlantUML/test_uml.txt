@@ -1,0 +1,15 @@
+@startuml
+object Object1
+object Object2
+object Object3
+object Object4
+object Object5
+object Object6
+object Object7
+object Object8
+ 
+Object1 <|-- Object2 : test
+Object3 *-- Object4
+Object5 o-- Object6
+Object7 .. Object8 : some labels
+@enduml
