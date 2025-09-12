@@ -1,4 +1,4 @@
-@startuml
+@startuml car
 
 class 車 {
  -メーカー
