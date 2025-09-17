@@ -1,0 +1,28 @@
+@startuml ログアウトシーケンス図
+hide footbox
+skinparam boundaryBackgroundColor #D5E8D4
+skinparam controlBackgroundColor  #F8CECC
+skinparam entityBackgroundColor   #DAE8FC
+
+actor ユーザー as A
+boundary メニュー画面 as B1
+control ログアウト処理 as C
+entity 訪問者情報 as E
+boundary ログアウト完了画面 as B2
+
+A -> B1: サイトに入る
+activate B1
+
+B1 -> C: 起動()
+activate C
+deactivate B1
+C -> E: ログアウト要求()
+activate E
+E --> C: ログアウト完了
+deactivate E
+C -> B2: 表示()
+activate B2
+deactivate C
+deactivate B1
+
+@enduml
