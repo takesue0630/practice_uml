@@ -18,4 +18,7 @@ skinparam componentStyle rectangle
 [登録] o-- [年齢]
 [登録] o-- [登録した他の訪問者]
 
+[ログイン情報] o-- [セッショントークン]
+[ログイン情報] o-- [リフレッシュトークン]
+
 @enduml

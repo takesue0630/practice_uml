@@ -1,0 +1,28 @@
+@startuml RoboDogシステム-名前変更シーケンス図
+hide footbox
+skinparam boundaryBackgroundColor #D5E8D4
+skinparam controlBackgroundColor  #F8CECC
+skinparam entityBackgroundColor   #DAE8FC
+
+actor ユーザー as A
+boundary ログイン画面 as B1
+control ログイン処理 as C
+entity 訪問者情報 as E
+boundary メニュー画面 as B2
+
+A -> B1: サイトに入る
+activate B1
+
+B1 -> C: ユーザーID、パスワードを入力()
+activate C
+deactivate B1
+C -> E: 訪問者情報参照()
+activate E
+E --> C: 一致する訪問者情報
+deactivate E
+C -> B2: 表示()
+activate B2
+deactivate C
+deactivate B1
+
+@enduml
