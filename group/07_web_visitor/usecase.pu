@@ -1,0 +1,16 @@
+@startuml 訪問者システムユースケース図
+left to right direction
+actor " 訪問者" as fc
+rectangle 訪問者システム {
+  usecase "情報を登録する" as UC1
+  usecase "情報を変更する" as UC2
+  usecase "情報を削除する" as UC3
+  usecase "ほかの訪問者を登録する" as UC4
+  usecase "ほかの訪問者情報を参照する" as UC5
+}
+fc --> UC1
+fc --> UC2
+fc --> UC3
+fc --> UC4
+fc --> UC5
+@enduml
