@@ -1,0 +1,49 @@
+@startuml 訪問者システム-参照シーケンス図
+hide footbox
+skinparam boundaryBackgroundColor #D5E8D4
+skinparam controlBackgroundColor  #F8CECC
+skinparam entityBackgroundColor   #DAE8FC
+
+actor ユーザー as A
+boundary メニュー画面 as B1
+control 訪問者一覧取得処理 as C1
+boundary 訪問者一覧画面 as B2
+control 訪問者情報取得処理 as C2
+entity 訪問者情報 as E
+boundary 訪問者情報画面 as B3
+
+activate A
+A -> B1: 訪問者一覧を選択()
+activate B1
+
+B1 -> C1: 起動()
+activate C1
+deactivate B1
+C1 -> E: 訪問者一覧取得()
+activate E
+E --> C1: 取得結果
+deactivate E
+
+C1 -> B2: 表示()
+activate B2
+deactivate C1
+
+B2 --> A
+A -> B2: 訪問者を選択()
+B2 -> C2: 起動()
+activate C2
+deactivate B2
+
+C2 -> E: 訪問者情報取得()
+activate E
+E --> C2: 取得結果
+deactivate E
+
+C2 -> B3: 表示()
+activate B3
+deactivate C2
+
+deactivate B3
+deactivate A
+
+@enduml

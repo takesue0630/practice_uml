@@ -1,0 +1,37 @@
+@startuml 訪問者システム-登録シーケンス図
+hide footbox
+skinparam boundaryBackgroundColor #D5E8D4
+skinparam controlBackgroundColor  #F8CECC
+skinparam entityBackgroundColor   #DAE8FC
+
+actor ユーザー as A
+boundary 登録画面 as B1
+control 登録処理 as C
+entity 訪問者情報 as E
+boundary 登録完了画面 as B2
+boundary エラーメッセージ付き登録画面 as B3
+
+activate A
+A -> B1: 登録を選択()
+activate B1
+
+B1 -> C: 訪問者情報を入力()
+activate C
+deactivate B1
+C -> E: 訪問者情報登録()
+activate E
+E --> C: 登録完了
+deactivate E
+
+C -> B2: 表示()
+activate B2
+deactivate B2
+alt 不正な入力の場合
+    C -> B3: エラー内容表示()
+    activate B3
+    deactivate B3
+end
+deactivate C
+deactivate A
+
+@enduml
