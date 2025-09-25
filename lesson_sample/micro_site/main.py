@@ -1,5 +1,5 @@
 from wsgiref.simple_server import make_server
-from app_logic import save_name, load_name, get_greeting, parse_post, render_template
+from app_logic import save_name, load_name, get_greeting, add_number, parse_post, render_template
 
 
 def application(environ, start_response):
@@ -21,6 +21,10 @@ def application(environ, start_response):
     elif path == "/greeting":
         greeting = get_greeting()
         body = render_template("templates/greeting.html", greeting=greeting, name_display=name or "ゲスト")
+
+    elif path == "/add_number":
+        ans = add_number(3,5)
+        body = render_template("templates/add_number_data.html", ans=ans or "none")
 
     else:
         start_response("404 Not Found", [("Content-Type", "text/plain; charset=utf-8")])

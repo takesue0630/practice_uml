@@ -20,6 +20,7 @@ def load_name():
         return data.get("name", "")
     except (json.JSONDecodeError, OSError):
         return ""
+
 def get_greeting():
     """時刻に応じた挨拶を返す"""
     hour = datetime.datetime.now().hour
@@ -29,6 +30,10 @@ def get_greeting():
         return "こんにちは"
     else:
         return "こんばんは"
+    
+def add_number(value1,value2):
+    """二つの整数の足し算をする"""
+    return value1+value2
 
 
 def parse_post(environ):
